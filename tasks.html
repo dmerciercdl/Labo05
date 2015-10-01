@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="tasks.css">
 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="tasks.js"></script>
 
@@ -17,8 +23,21 @@
 
 <div class="mainContainer">
     <p>
-        <button type="button" id="getTasks">Display tasks</button>
+        <button type="button" id="add" class="btn btn-primary">Add</button>
+        <button type="button" id="delete" class="btn btn-primary">Delete</button>
+        <button type="button" id="modify" class="btn btn-primary">Modify</button>
     </p>
+
+    <div id="noteContainerContent">
+        <div id="1">test1</div>
+        <div id="2">test2</div>
+    </div>
+
+    <div id="selectedNote">
+
+    </div>
+
+
 </div>
 
 </body>
