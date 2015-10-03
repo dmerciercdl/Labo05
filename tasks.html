@@ -21,23 +21,34 @@
 </head>
 <body>
 
-<div class="mainContainer">
-    <p>
-        <button type="button" id="add" class="btn btn-primary">Add</button>
-        <button type="button" id="delete" class="btn btn-primary">Delete</button>
-        <button type="button" id="modify" class="btn btn-primary">Modify</button>
-    </p>
-
-    <div id="noteContainerContent">
-        <div id="1">test1</div>
-        <div id="2">test2</div>
+<div class="container-fluid">
+    <div class="mainContainer">
+        <p>
+            <button type="button" id="add" class="btn btn-primary" disabled="disabled">Add</button>
+            <button type="button" id="delete" class="btn btn-primary" disabled="disabled">Delete</button>
+            <button type="button" id="modify" class="btn btn-primary" disabled="disabled">Modify</button>
+        </p>
+        <p>
+        <div id="selectedTask">
+            <input type="text" id="taskID" value="test" disabled>
+            <input type="text" id="taskContent" value="test2">
+        </div>
+        </p>
+        <div class="list-group" id="tasksContainer">
+        </div>
     </div>
+</div>
 
-    <div id="selectedNote">
-
+<div id="overlay">
+    <div id="overlay_global">
+        <div>
+            <input type="text" id="newTaskDescription" value="" placeholder="Enter description here">
+        </div>
+        <div>
+            <button id="cancel">Cancel</button>
+            <button id="submit">Add</button>
+        </div>
     </div>
-
-
 </div>
 
 </body>
