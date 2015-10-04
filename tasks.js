@@ -12,11 +12,14 @@ $(document).ready(function() {
     });
 
     $("#modify").click(function() {
+        modifyTask(document.getElementById("taskID").value, document.getElementById("taskContent").value);
+        /*
         $("#selectedTask").attr('style','display: hidden');
         $("#taskID").val("");
         $("#taskContent").val("");
         $("#delete").attr("disabled", "disabled");
         $("#modify").attr("disabled", "disabled");
+        */
     });
 
     $("#delete").click(function() {
@@ -38,7 +41,7 @@ $(document).ready(function() {
         //taskDesc = $("newTaskDescription").value;
         taskDesc = document.getElementById("newTaskDescription").value;
         if(taskDesc == "" || taskDesc == undefined) {
-            alert("can't add an empty task");
+            alert("Can't add an empty task");
             return;
         }
         else {
@@ -103,6 +106,28 @@ function deleteTask(id) {
         //bindClickForTasks();
         var elem = "#" + id;
         $(elem).remove();
+    });
+
+    request.fail(function (jqXHR, textStatus) {
+        console.log(textStatus);
+        alert("fail " + textStatus);
+    });
+}
+
+function modifyTask(id, task) {
+    var urlToModify = 'http://127.0.0.1:5000/tasks/' + id;
+    var myJSONObject = "{\"task\": \"" + task + "\"}";
+    var request = $.ajax({
+        url : urlToModify,
+        type : 'PUT',
+        data : myJSONObject,
+        contentType : 'application/json'
+    });
+
+    request.done(function (data) {
+        $('#tasksContainer').empty();
+        processNewData(data);
+        bindClickForTasks();
     });
 
     request.fail(function (jqXHR, textStatus) {
